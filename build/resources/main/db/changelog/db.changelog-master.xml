@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <include file="db/changelog/202205041552_add_entidade_cliente.xml"></include>
+    <include file="db/changelog/202205041608_add_entidade_bike.xml"></include>
+    <include file="db/changelog/202205041615_add_entidade_aluguel.xml"></include>
+    <include file="db/changelog/202205041622_add_constraint_aluguel.xml"></include>
+
+</databaseChangeLog>
