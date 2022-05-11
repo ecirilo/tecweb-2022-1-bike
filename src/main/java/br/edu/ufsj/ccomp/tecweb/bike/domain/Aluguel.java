@@ -24,5 +24,14 @@ public class Aluguel {
     private LocalDate dataTermino;
 
     @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+
+    @ManyToMany
+    @JoinTable(
+            name="aluguel_bike",
+            joinColumns = @JoinColumn(name = "id_aluguel"),
+            inverseJoinColumns = @JoinColumn(name = "id_bike")
+    )
+    private List<Bike> bikes;
 }

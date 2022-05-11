@@ -35,7 +35,7 @@ public class BikeResource {
     public ResponseEntity<Bike> createBike(@RequestBody Bike bike) throws URISyntaxException {
         Bike createdBike = bikeRepository.save(bike);
         return ResponseEntity
-                .created(new URI("/api/bikes/" + bike.getId()))
+                .created(new URI("/api/bikes/" + createdBike.getId()))
                 .body(createdBike);
     }
 

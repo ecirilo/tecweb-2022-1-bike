@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "bike")
@@ -33,4 +34,7 @@ public class Bike {
 
     @Column(name = "cor")
     private String cor;
+
+    @ManyToMany(mappedBy = "bikes")
+    private List<Aluguel> aluguel;
 }

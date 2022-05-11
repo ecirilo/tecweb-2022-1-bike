@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="202205091554-1" author="Elder Cirilo">
+        <addForeignKeyConstraint
+                baseTableName="aluguel_bike"
+                baseColumnNames="id_aluguel"
+                constraintName="fk_aluguel_bike__aluguel"
+                referencedTableName="aluguel"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="aluguel_bike"
+                baseColumnNames="id_bike"
+                constraintName="fk_aluguel_bike__bike"
+                referencedTableName="bike"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
