@@ -35,6 +35,15 @@ public class Bike {
     @Column(name = "cor")
     private String cor;
 
+    @Column(name = "imagem")
+    private byte[] imagem;
+
+    @Column(name = "imagem_tipo")
+    private String imagemTipo;
+
+    @Column(name = "url")
+    private String url;
+
     @ManyToMany(mappedBy = "bikes")
     private List<Aluguel> aluguel;
 }

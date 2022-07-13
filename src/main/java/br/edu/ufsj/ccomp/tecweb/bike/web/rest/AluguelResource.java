@@ -15,6 +15,7 @@ import java.util.List;
 public class AluguelResource {
 
     //curl -d '{"dataInicio":"2022-05-09", "dataTermino":"2022-05-10", "cliente":{"id":1}, "bikes":[{"id":1}] }' -H "Content-Type: application/json" -X POST http://localhost:8080/api/v1/alugueis
+    //curl -d '{"dataInicio":"2022-05-09", "dataTermino":"2022-05-10", "cliente":{"id":1}, "bikes":[{"id":1}] }' -H "Content-Type: application/json" -X PUT http://localhost:8080/api/v1/alugueis/1
     //curl -X GET http://localhost:8080/api/v1/alugueis
     //curl -X GET http://localhost:8080/api/v1/alugueis/1
     //curl -X DELETE http://localhost:8080/api/v1/alugueis/1

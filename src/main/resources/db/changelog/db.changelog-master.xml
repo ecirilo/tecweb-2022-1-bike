@@ -10,5 +10,7 @@
     <include file="db/changelog/202205041622_add_constraint_aluguel.xml"></include>
     <include file="db/changelog/202205091549_add_relation_aluguel_bike.xml"></include>
     <include file="db/changelog/202205091554_add_constraint_aluguel_bike.xml"></include>
+    <include file="db/changelog/202206291542_update_entidade_bike.xml"></include>
+    <include file="db/changelog/202206291625_update_entidade_bike.xml"></include>
 
 </databaseChangeLog>
