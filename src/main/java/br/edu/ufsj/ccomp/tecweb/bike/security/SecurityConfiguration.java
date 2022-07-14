@@ -1,5 +1,6 @@
 package br.edu.ufsj.ccomp.tecweb.bike.security;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,9 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Value("${my-server.security.audience}")
+    private String audience;
+
     private final CorsFilter corsFilter;
 
     public SecurityConfiguration(CorsFilter corsFilter) {
@@ -36,17 +40,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1/authenticate").permitAll()
                 .antMatchers("/api/v1/**").authenticated()
             .and()
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+                    .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
     }
 
     @Bean
     public JwtDecoder jwtDecoder(OAuth2ResourceServerProperties properties) {
         String issuerUri = properties.getJwt().getIssuerUri();
         NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder) JwtDecoders.fromIssuerLocation(issuerUri);
-        OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator("https://dev-0hjo6w8t.us.auth0.com/api/v2/");
+        OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(audience);
         OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuerUri);
         OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
         jwtDecoder.setJwtValidator(withAudience);

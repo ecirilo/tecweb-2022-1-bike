@@ -10,3 +10,6 @@ spring:
             resourceserver:
               jwt:
                   issuer-uri: https://dev-0hjo6w8t.us.auth0.com/
+my-server:
+    security:
+        audience: https://dev-0hjo6w8t.us.auth0.com/api/v2/
